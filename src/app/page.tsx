@@ -1,9 +1,9 @@
-import Header from "@/components/Header";
+import SpinLoader from "@/components/SpindLoader";
 
 export default async function HomePage() {
   return (
     <div>
-      <Header />
+      <SpinLoader className="min-h-[500px] bg-amber-500" />
     </div>
   );
 }
