@@ -3,6 +3,7 @@ import { PostRepository } from "./post-repository";
 import { resolve } from "path";
 import { readFile } from "fs/promises";
 
+//muito importante não importar o arquivo JSON direamente, pois na build ele acaba virando um arquivo que não sofre alterações.
 const ROOT_DIR = process.cwd();
 const JSON_POSTS_FILE_PATH = resolve(
   ROOT_DIR,
@@ -34,16 +35,3 @@ export class JsonPostRepository implements PostRepository {
     return post;
   }
 }
-export const postRepository: PostRepository = new JsonPostRepository();
-
-// (async () => {
-// const posts = await postRepository.findAll();
-// posts.forEach((post) => {
-//   console.log(post.id);
-// });
-
-// const post = await postRepository.findById(
-//   "bf5c7dae-06a4-4155-9c01-a56e02956496"
-// );
-// console.log(post);
-// })();
