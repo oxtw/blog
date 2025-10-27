@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -11,7 +12,7 @@ export default function Header() {
           "lg:text-7xl/normal md:py-12",
         )}
       >
-        <a href="#">Dreamlog</a>
+        <Link href="#">Dreamlog</Link>
       </h1>
     </header>
   );
