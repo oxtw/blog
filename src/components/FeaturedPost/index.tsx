@@ -1,7 +1,6 @@
 import clsx from "clsx";
-import Image from "next/image";
-import Link from "next/link";
 import PostHeading from "../PostHeading";
+import PostCoverImage from "../PostCoverImage";
 
 export default function FeaturedPost() {
   return (
@@ -15,26 +14,17 @@ export default function FeaturedPost() {
         "group"
       )}
     >
-      <Link
-        className={clsx("w-full", "h-full", "overflow-hidden", "rounded-xl")}
-        href="#"
-      >
-        <Image
-          className={clsx(
-            "w-full",
-            "h-full",
-            "object-cover",
-            "object-center",
-            "group-hover:scale-105",
-            "transition"
-          )}
-          src="/images/bryen_0.png"
-          width={1200}
-          height={720}
-          alt="Título do post"
-          priority //carregando a imagem com prioridade
-        />
-      </Link>
+      <PostCoverImage
+        linkProps={{ href: "/post/okaskoakodasp", className: "opacity-50" }}
+        imageProps={{
+          width: 1200,
+          height: 720,
+          src: "/images/bryen_9.png",
+          alt: "Alt da imagem",
+          priority: true,
+        }}
+      />
+
       <div className="flex flex-col gap-4 sm:justify-center">
         <time
           className="text-slate-600 block text-sm/tight"
