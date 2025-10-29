@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import PostHeading from "../PostHeading";
 
 export default function FeaturedPost() {
   return (
@@ -42,9 +43,9 @@ export default function FeaturedPost() {
           20/04/2025 10:00
         </time>
 
-        <h1 className={clsx("text-2xl/tight", "font-extrabold", "sm:text-4xl")}>
-          <Link href="#">Lorem ipsum dolor sit amet, consectetur</Link>
-        </h1>
+        <PostHeading url="#" as="h1">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </PostHeading>
 
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui numquam
