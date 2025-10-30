@@ -3,6 +3,9 @@ import PostHeading from "../PostHeading";
 import PostCoverImage from "../PostCoverImage";
 
 export default function FeaturedPost() {
+  const slug = "okaskoakodasp";
+  const postLink = `/post/${slug}`;
+
   return (
     <section
       className={clsx(
@@ -15,7 +18,7 @@ export default function FeaturedPost() {
       )}
     >
       <PostCoverImage
-        linkProps={{ href: "/post/okaskoakodasp" }}
+        linkProps={{ href: postLink }}
         imageProps={{
           width: 1200,
           height: 720,
