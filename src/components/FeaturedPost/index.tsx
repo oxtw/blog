@@ -15,7 +15,7 @@ export default function FeaturedPost() {
       )}
     >
       <PostCoverImage
-        linkProps={{ href: "/post/okaskoakodasp", className: "opacity-50" }}
+        linkProps={{ href: "/post/okaskoakodasp" }}
         imageProps={{
           width: 1200,
           height: 720,

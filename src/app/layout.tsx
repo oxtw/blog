@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import './globals.css';
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Dreamlog",
