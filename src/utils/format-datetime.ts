@@ -1,0 +1,22 @@
+import { format, formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
+
+
+export function formatDatetime(rawDate: string): string{
+  const date = new Date(rawDate);
+
+  return format(date, "dd/MM/yyyy HH:mm", { locale: ptBR});
+}
+
+export function formatRelativeDate(rawDate: string): string{
+  const date = new Date(rawDate);
+
+  return formatDistanceToNow(date, {
+    locale: ptBR,
+    addSuffix: false,
+  });
+}
+const rawDate = "2024-06-15T12:34:56Z";
+console.log(rawDate);
+console.log(formatRelativeDate(rawDate));
+
