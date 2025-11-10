@@ -1,10 +1,12 @@
 import clsx from "clsx";
 import PostCoverImage from "../PostCoverImage";
 import PostSummary from "../PostSummary";
+import { findAllPublicPosts } from "@/lib/post/queries";
 
-export default function FeaturedPost() {
-  const slug = "okaskoakodasp";
-  const postLink = `/post/${slug}`;
+export default async function FeaturedPost() {
+  const posts = await findAllPublicPosts();
+  const post = posts[0];
+  const postLink = `/post/${post.slug}`;
 
   return (
     <section
@@ -22,19 +24,17 @@ export default function FeaturedPost() {
         imageProps={{
           width: 1200,
           height: 720,
-          src: "/images/bryen_9.png",
-          alt: "Alt da imagem",
+          src: post.coverImageUrl,
+          alt: post.title,
           priority: true,
         }}
       />
 
       <PostSummary
         postLink={postLink}
-        excerpt={
-          "o Next.js já vem com várias decisões prontas, permitindo que você comece a desenvolver mais rapidamente."
-        }
-        title={"Next.js: O framework React para produção"}
-        createdAt={"2025-01-07T22:54:10"}
+        excerpt={post.excerpt}
+        title={post.title}
+        createdAt={post.createdAt}
         postHeading="h1"
       />
     </section>
