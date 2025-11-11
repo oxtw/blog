@@ -2,7 +2,7 @@ import PostCoverImage from "../PostCoverImage";
 import PostSummary from "../PostSummary";
 import { findAllPublicPosts } from "@/lib/post/queries";
 
-export async function PostsList() {
+export default async function PostsList() {
   const posts = await findAllPublicPosts();
 
   return (
