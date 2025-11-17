@@ -21,7 +21,9 @@ export default function PostHeading({
 
   return (
     <Tag className={clsx(headingClassesMap[Tag], commonClasses)}>
-      <Link className="hover:text-blue-900 trasition" href={url}>{children}</Link>
+      <Link className="hover:text-blue-900 trasition" href={url}>
+        {children}
+      </Link>
     </Tag>
   );
 }
