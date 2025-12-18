@@ -1,19 +1,15 @@
-import { InferInsertModel, InferSelectModel } from "drizzle-orm";
-import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { drizzle } from "drizzle-orm/better-sqlite3";
+import { postsTable } from "./schemas";
+import { resolve } from "path";
+import Database from "better-sqlite3";
 
-export const postsTable = sqliteTable("posts", {
-  id: text("id").primaryKey(),
-  slug: text("slug").notNull().unique(),
-  title: text("title").notNull(),
-  author: text("author").notNull(),
-  excerpt: text("excerpt").notNull(),
-  content: text("content").notNull(),
-  coverImageUrl: text("cover_image_url").notNull(),
-  published: integer("published", { mode: "boolean" }).notNull(),
-  createdAt: text("created_at").notNull(),
-  updatedAt: text("updated_at").notNull(),
+const sqliteDatabasePath = resolve(process.cwd(), "./db.sqlite3");
+const sqliteDatabase = new Database(sqliteDatabasePath);
+
+export const drizzleDb = drizzle(sqliteDatabase , {
+  schema: {
+    posts: postsTable,
+  },
+
+  logger: true,
 });
-
-export type PostsTableSelectModel = InferSelectModel<typeof postsTable>
-export type PostsTableInsertModel = InferInsertModel<typeof postsTable>
-
