@@ -14,6 +14,5 @@ export const postsTable = sqliteTable("posts", {
   updatedAt: text("updated_at").notNull(),
 });
 
-export type PostsTableSelectModel = InferSelectModel<typeof postsTable>
-export type PostsTableInsertModel = InferInsertModel<typeof postsTable>
-
+export type PostsTableSelectModel = InferSelectModel<typeof postsTable>;
+export type PostsTableInsertModel = InferInsertModel<typeof postsTable>;
