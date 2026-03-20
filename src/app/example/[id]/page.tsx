@@ -1,13 +1,15 @@
 import { formatHour } from "@/utils/format-datetime";
 
-//tornando a rota estatica
-// export const dynamic = "force-static";
 
-export const dynamicParams = true;
+export const dynamic = "force-static";
+export const revalidate = 10;
 
-export async function generateStaticParams() {
-  return [{ id: "1" }, { id: "2" }, { id: "3" }];
-}
+// tornando a rota estatica
+// export const dynamicParams = true;
+
+// export async function generateStaticParams() {
+//   return [{ id: "1" }, { id: "2" }, { id: "3" }];
+// }
 
 export default async function ExampleDynamicPage({params,}: {params: Promise<{id: string}>;}) {
   const { id } =  await params;
