@@ -7,5 +7,6 @@ export async function revalidateExampleAction(formData: FormData) {
   console.log("Revalidating...", path);
 
   // revalidatePath(`${path}`);
-  revalidateTag('formatHourCached');
+  revalidateTag('posts'); //Home
+  revalidateTag('post-rotina-matinal-de-pessoas-altamente-eficazes'); //Single
 }
