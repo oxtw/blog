@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import PostCoverImage from "../PostCoverImage";
 import PostSummary from "../PostSummary";
-import { findAllPublicPostsCached } from "@/lib/post/queries";
+import { findAllPublicPostsCached } from "@/lib/post/queries/public";
 
 export default async function FeaturedPost() {
   const posts = await findAllPublicPostsCached();
@@ -16,7 +16,7 @@ export default async function FeaturedPost() {
         "gap-8",
         "mb-16",
         "sm:grid-cols-2",
-        "group"
+        "group",
       )}
     >
       <PostCoverImage
