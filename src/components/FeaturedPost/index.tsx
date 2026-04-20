@@ -2,9 +2,20 @@ import clsx from "clsx";
 import PostCoverImage from "../PostCoverImage";
 import PostSummary from "../PostSummary";
 import { findAllPublicPostsCached } from "@/lib/post/queries/public";
+import ErrorMessage from "../ErrorMessage";
 
 export default async function FeaturedPost() {
   const posts = await findAllPublicPostsCached();
+
+  if (posts.length <= 0) {
+    return (
+      <ErrorMessage
+        contentTitle="Ops! 😅"
+        content="Ainda nao criamos nenhum post."
+      />
+    );
+  }
+  
   const post = posts[0];
   const postLink = `/post/${post.slug}`;
 

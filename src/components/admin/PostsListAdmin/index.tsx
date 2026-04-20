@@ -2,11 +2,21 @@ import { findAllPostAdmin } from "@/lib/post/queries/admin";
 import clsx from "clsx";
 import Link from "next/link";
 import { DeletePostButton } from "../DeletePostButton";
+import ErrorMessage from "@/components/ErrorMessage";
 
 export const dynamic = "force-dynamic";
 
 export default async function PostsListAdmin() {
   const posts = await findAllPostAdmin();
+
+    if (posts.length <= 0) {
+      return (
+        <ErrorMessage
+          contentTitle="Ei 😅"
+          content="Bora criar algum post???"
+        />
+      );
+    }
 
   return (
     <div className="mb-16">
