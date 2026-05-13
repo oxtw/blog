@@ -1,5 +1,4 @@
 import { Button } from "@/components/Button";
-import { findAllPostAdmin } from "@/lib/post/queries/admin";
 
 export const dynamic = "force-dynamic";
 
@@ -8,15 +7,11 @@ export const metadata = {
 };
 
 export default async function AdminPostNewPage() {
-  const posts = await findAllPostAdmin();
-
   return (
-    <div className="p-16">
-      {posts.map((post) => {
-        return <p key={post.id}>{post.title}</p>;
-      })}
-
-      <Button type="submit">Funciona como o Button do JSX</Button>
+    <div className="py-16 flex gap-2 flex-wrap">
+      <Button variant="default" size="sm">Confirma</Button>
+      <Button variant="ghost" size="md">Confirma</Button>
+      <Button variant="danger" size="lg">Confirma</Button>
     </div>
   );
 }
